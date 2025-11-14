@@ -13,7 +13,7 @@ dotenv.config();
 // middlwares
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://diwali-greeting-card-generator-mern-r1ty.onrender.com",
     credentials: true, // Allow cookies
   })
 );
