@@ -41,7 +41,7 @@ function LoginComponent() {
       }
     }
     catch (err) {
-      setError(err?.response?.data?.Message);
+      setError(err?.message||err?.response?.data?.Message);
       console.log(err);
       setLoading(false);
     }
