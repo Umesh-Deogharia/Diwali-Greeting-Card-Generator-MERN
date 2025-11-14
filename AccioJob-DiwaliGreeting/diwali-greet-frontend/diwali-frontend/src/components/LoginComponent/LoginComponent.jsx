@@ -25,13 +25,6 @@ function LoginComponent() {
   const [error, setError] = useState("");
   // const dispatch = useDispatch();
 
-  const [value, setValue] = useState({
-    email: "",
-    password: "",
-  });
-  const handleChange = (prop) => (event) => {
-    setValue({ ...value, [prop]: event.target.value });
-  };
 
   const handleSignIn = async () => {
     console.log(userEmail);

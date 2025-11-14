@@ -1,4 +1,3 @@
-import React, { createContext } from 'react'
 import { useState } from 'react'
 import { IoIosEye } from "react-icons/io";
 import { IoIosEyeOff } from "react-icons/io";
@@ -22,7 +21,6 @@ function SignupComponent() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const myContext = createContext()
 
     const handleSignUp = async () => {
         try {
@@ -35,7 +33,7 @@ function SignupComponent() {
         }
         catch (err) {
             console.log(err);
-            setError(err?.response?.data?.Message)
+            setError(err?.message||err?.response?.data?.Message)
             // console.log("Error",error);
             // console.log("ErrorCdddd", err?.response?.data?.message);
             setLoading(false);
