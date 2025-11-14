@@ -39,7 +39,12 @@ userRouter.post("/login", async (req, res) => {
       return res.status(401).json({ Message: "Email or password do not match" });
     }
     const token = await user.generateJWTToken();
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
+
     res.status(200).json({
       Message: "User logged in successfully",
       success: true,
@@ -52,7 +57,13 @@ userRouter.post("/login", async (req, res) => {
 });
 
 userRouter.post("/logout", (req, res) => {
-  res.cookie("token", null, { expires: new Date(Date.now()) })
+  res.cookie("token", null, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    expires: new Date(Date.now()),
+  });
+
   res.send("Logout Successfull !!!");
 })
 
