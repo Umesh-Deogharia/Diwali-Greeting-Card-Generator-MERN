@@ -11,14 +11,27 @@ var cookieParser = require("cookie-parser");
 dotenv.config();
 
 // middlwares
+const allowedOrigins = [
+  "https://diwali-greeting-card-generator-mern-r1ty.onrender.com",
+  "http://localhost:5173"
+];
+
 app.use(
   cors({
-    origin: "https://diwali-greeting-card-generator-mern-r1ty.onrender.com",
+    origin: allowedOrigins,
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-app.options("*", cors());  // 🔥 REQUIRED FOR DEPLOYED CORS
+// Handle preflight requests
+app.options("*", cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 app.use(cookieParser());
 app.use(express.json());
