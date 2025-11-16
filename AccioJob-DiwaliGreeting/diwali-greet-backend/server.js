@@ -12,7 +12,7 @@ dotenv.config();
 
 // middlwares
 const allowedOrigins = [
-  "https://diwali-greeting-card-generator-mern.onrender.com/",
+  "https://genuine-gelato-208fb0.netlify.app/",
   "http://localhost:5173"
 ];
 
