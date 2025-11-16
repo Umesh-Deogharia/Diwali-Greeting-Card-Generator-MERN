@@ -2,8 +2,8 @@ function buildPrompt(name, language, tone) {
   const langLine =
     language === "Hindi"
       ? "Write the message in Hindi (use Devangiri Script)."
-      : language === "Hinglish"
-      ? "Write the message in Hinglish (Hindi Words using latin script)."
+      : language === "Bengali"
+      ? "Write the message in Bengali."
       : "Write the message in English.";
   const toneLine =
     tone === "Formal"

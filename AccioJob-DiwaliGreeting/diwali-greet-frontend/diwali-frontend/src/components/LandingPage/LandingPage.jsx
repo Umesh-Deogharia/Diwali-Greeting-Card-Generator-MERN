@@ -33,7 +33,6 @@ const LandingPage = () => {
 
     return (
         <>
-
             <Navbar />
             <div className='h-screen w-full bg-linear-to-b from-green-600 to-yellow-900 flex flex-col justify-center items-center'>
                     <h1 className='-mt-20 text-white text-4xl font-bold mb-15 text-center'>Generate Your Own Diwali Greeting Card</h1>

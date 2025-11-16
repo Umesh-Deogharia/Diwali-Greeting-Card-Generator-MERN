@@ -14,9 +14,9 @@ function App() {
           <Route
             path="/"
             element={
-              // <PrivateRoute>
+              <PrivateRoute>
                 <LandingPage />
-              // </PrivateRoute>
+               </PrivateRoute>
             }
           />
           <Route path="/login" element={<LoginComponent />} />
