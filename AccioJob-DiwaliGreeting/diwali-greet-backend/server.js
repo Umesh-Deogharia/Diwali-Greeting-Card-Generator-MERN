@@ -41,6 +41,7 @@ app.use("/api/v1/gemini", geminiRouter);
 
 var PORT = process.env.PORT || 4000;
 
+console.log(PORT);
 app.listen(PORT, async () => {
   await dbConfig();
   console.log(`Listening to the port ${PORT}`);

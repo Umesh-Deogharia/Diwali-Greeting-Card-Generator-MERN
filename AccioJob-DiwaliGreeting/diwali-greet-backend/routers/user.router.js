@@ -43,10 +43,15 @@ userRouter.post("/login", async (req, res) => {
       httpOnly: true,
       secure: true,
       sameSite: "none",
+      path: "/",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
+
+    // const myCookie = res.cookie;
 
     res.status(200).json({
       Message: "User logged in successfully",
+      // token:token,
       success: true,
     });
   } catch (error) {
