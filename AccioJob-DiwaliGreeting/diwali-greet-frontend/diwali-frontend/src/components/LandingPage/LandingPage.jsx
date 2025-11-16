@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import axios from 'axios';
 import { Spinner } from "@heroui/spinner";
+import { ClipLoader } from 'react-spinners';
 // import DropDown from '../DropDown';
 
 const LandingPage = () => {
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
     const apiVersion = import.meta.env.VITE_APP_API_VERSION;
+    const [loading, setLoading] = useState(false);
     const [geminiResult, setGeminiResult] = useState('');
     const [geminiValue, setGeminiValue] = useState({ name: "", language: "English", tone: "Informal" });
     const handleChange = (e) => {
@@ -17,6 +19,7 @@ const LandingPage = () => {
     // console.log(geminiValue);
     const handleClick = async () => {
         try {
+            setLoading(true)
             const geminiRes = await axios.post(`${apiUrl}/${apiVersion}/gemini/generate`,
                 { name: geminiValue.name, language: geminiValue.language, tone: geminiValue.tone },
                 {
@@ -24,6 +27,7 @@ const LandingPage = () => {
                 }
             );
             setGeminiResult(geminiRes?.data?.data);
+            setLoading(false)
             // console.log(geminiRes);
         }
         catch (err) {
@@ -53,7 +57,7 @@ const LandingPage = () => {
                         </div>
                         <div className='bg-amber-400 h-10 '>
                         </div>
-                        <button onClick={() => handleClick()} className='px-10 py-3 text-xl  bg-blue-300 font-bold rounded-lg flex '>Try</button>
+                        <button onClick={() => handleClick()} className='px-10 py-3 text-xl  bg-blue-300 font-bold rounded-lg flex '>{loading ? <ClipLoader color='white' size={30} /> : "Try"}</button>
                     </div>
                     <div className='p-2 border-2 w-[90%] md:w-[40%]  min-h-60 my-auto mx-auto flex justify-center items-center'>
                         <span className='m-2'>{geminiResult} </span>
