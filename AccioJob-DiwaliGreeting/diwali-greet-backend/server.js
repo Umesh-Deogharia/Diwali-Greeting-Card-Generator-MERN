@@ -13,7 +13,7 @@ dotenv.config();
 // middlwares
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://genuine-gelato-208fb0.netlify.app"
+  "https://diwali-wishing-card-generator.netlify.app"
 ];
 
 app.use(cors({
