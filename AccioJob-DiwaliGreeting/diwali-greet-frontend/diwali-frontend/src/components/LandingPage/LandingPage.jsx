@@ -35,7 +35,7 @@ const LandingPage = () => {
         <>
             <Navbar />
             <div className='h-screen w-full bg-linear-to-b from-green-600 to-yellow-900 flex flex-col justify-center items-center'>
-                    <h1 className='-mt-20 text-white text-4xl font-bold mb-15 text-center'>Generate Your Own Diwali Greeting Card</h1>
+                    <h1 className=' text-white text-4xl font-bold mb-15 text-center'>Generate Your Own Diwali Greeting Card</h1>
                 <div className='px-5 w-[90%] lg:max-w-[60%] h-[600px] bg-white rounded-2xl flex justify-center items-center flex-col md:flex-row overflow-hidden border-2 border-[#1a1f23]'>
                     <div className='flex flex-col items-center w-[50%] justify-center'>
                         <input className='h-12  w-55 md:w-80 border py-5 px-5 mt-14 mb-4 rounded-lg' type="text" name="name" id="" onChange={handleChange} />
